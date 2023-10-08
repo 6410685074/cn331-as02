@@ -20,9 +20,10 @@
 
 4.Registration(Quta) page ทำหน้าที่บอกรายวิชาที่เปิดสอนอยู่ และยังบอกอีกด้วยว่ารายวิชาไหนยังสามารถลงเรียนได้หรือไม่ได้
 
-![127 0 0 1_8000_login - Google Chrome 8_10_2566 20_27_59](https://github.com/6410685074/cn331-as02/assets/88659254/fa8ea61c-c435-47f1-937f-7d798cf7e394)
+![image](https://github.com/6410685074/cn331-as02/assets/88650235/19887cc7-61aa-48a8-b554-5ec30b06f4f0)
+
 
 5.Registration Status page ทำหน้าทที่ให้ผู้ใช้ลงรายวิชาที่ผู้ใช้ต้องการ และบอกรายวิชาที่ผู้ใช้ลงทะเบียนไว้อยู่แล้ว
 
-![127 0 0 1_8000_login - Google Chrome 8_10_2566 20_28_07](https://github.com/6410685074/cn331-as02/assets/88659254/b9e770c6-e26b-4063-8c20-fe6d527b97da)
+![image](https://github.com/6410685074/cn331-as02/assets/88650235/62bddd2f-b119-4174-b706-ba50b3f8d2df)
 
