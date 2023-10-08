@@ -11,6 +11,7 @@ class Course(models.Model):
     status=models.BooleanField()
     info=models.TextField(max_length=3000)
     lecturer_img=models.ImageField(null=True,blank=True,upload_to='images/')
+    sem_year=models.CharField(max_length=100)
     
     def __str__(self):
         return f'{self.ID}'

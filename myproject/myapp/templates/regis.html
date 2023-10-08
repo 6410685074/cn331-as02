@@ -21,6 +21,7 @@
         <th scope="col">n_student</th>
         <th scope="col">lecturer</th>
         <th scope="col">status</th>
+        <th scope="col">semister/year</th>
       </tr>
     </thead>
     {%for course in all_course%}
@@ -43,6 +44,8 @@
         {%else%}
             <td><a class="btn btn-danger btn-md " tabindex="-1" role="button" aria-disabled="true">close</a></td>
         {%endif%}
+
+    <td>{{course.sem_year}}</td>
     </tr>
     {%endfor%}
     <tbody>
