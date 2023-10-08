@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>registor (quota)</title>
+{% endblock %}
+
+{%block content%}
+<h1 style="color: rgb(0, 0, 0);">Courses</h1>
+<style>
+  body {
+    background-image: url('https://w0.peakpx.com/wallpaper/693/721/HD-wallpaper-artstation-hogwarts-classroom-fan-art.jpg');
+    background-size: 1600px 900px;
+}
+  </style>
+<table class="table table-light table-hover table-striped table-bordered border-dark">
+    <thead>
+      <tr>
+        <th scope="col">course_id</th>
+        <th scope="col">name</th>
+        <th scope="col">max</th>
+        <th scope="col">n_student</th>
+        <th scope="col">lecturer</th>
+        <th scope="col">status</th>
+      </tr>
+    </thead>
+    {%for course in all_course%}
+    <tr>
+        <th scope="row">{{course.ID}}</th>
+        <td><span class="popup">
+          {{ course.name }}
+          <span class="popup-text">{{course.info}}</span>
+      </span></td>
+        <td>{{course.num}}</td>
+        <td>{{course.nItems}}</td>
+        <td> <span class="popup-trigger">
+          {{ course.lecturer }}
+          <div class="popup-container">
+              <img src="{{course.lecturer_img}}" alt="Popup Image" class="popup-image">
+          </div>
+      </span></td>
+        {%if course.status%}
+            <td><a href="/account_reg" class="btn btn-success btn-md " role="button" aria-disabled="false">open</a></td>
+        {%else%}
+            <td><a class="btn btn-danger btn-md " tabindex="-1" role="button" aria-disabled="true">close</a></td>
+        {%endif%}
+    </tr>
+    {%endfor%}
+    <tbody>
+    </tbody>
+  </table>
+<img src="https://media.giphy.com/media/SUqj4En9u50sXYHVOo/giphy.gif?cid=ecf05e47ocrrg5dp3g69n1uqllzs2ik9r0dve20wvfvu8emd&ep=v1_gifs_search&rid=giphy.gif"  width="250" />
+<img src="https://media.giphy.com/media/dMiFpyOqcSGu8DSqgS/giphy.gif?cid=ecf05e47pj7xdxhzlzlgq1initurqxftb01o8es3sp9rk20a&ep=v1_gifs_search&rid=giphy.gif"  width="250" />
+<img src="https://media.giphy.com/media/WrEew8p7wdmMVqopfT/giphy.gif?cid=ecf05e47ocrrg5dp3g69n1uqllzs2ik9r0dve20wvfvu8emd&ep=v1_gifs_search&rid=giphy.gif"  width="250" />
+<img src="https://media.giphy.com/media/JnPPyKrVUTGiCnIWYL/giphy.gif?cid=ecf05e472jvn63radb5vzz67zx3w3xeo2mm9zch50r406man&ep=v1_gifs_search&rid=giphy.gif"  width="250" />
+<img src="https://media.giphy.com/media/5BHhTyCVBtq7YLJWQg/giphy.gif?cid=ecf05e474myz6csg7mv24er6116j6xsw0ouo7qjxa2uqp8pm&ep=v1_gifs_search&rid=giphy.gif"  width="250" />
+
+{%endblock%}
