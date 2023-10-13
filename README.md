@@ -1,7 +1,7 @@
 # cn331-as02
 youtube:https://youtu.be/l4mov5Dog9U
 
-web:kunkerdthaisong.pythonanywhere.com
+web:https://hogwartsregistration.pythonanywhere.com/
 
 
 6410685074 kun kerdthaisong
