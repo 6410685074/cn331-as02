@@ -1,5 +1,7 @@
 # cn331-as02
-https://youtu.be/l4mov5Dog9U
+youtube:https://youtu.be/l4mov5Dog9U
+
+web:kunkerdthaisong.pythonanywhere.com
 
 
 6410685074 kun kerdthaisong
