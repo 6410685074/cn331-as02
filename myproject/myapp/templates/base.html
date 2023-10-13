@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% block title %}
+    {% endblock %}
+    <style>
+        .popup-container {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 400px;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .popup-image {
+            max-width: 120%;
+            height: auto;
+        }
+        .popup-trigger {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .popup-trigger:hover .popup-container {
+            display: block;
+        }
+    </style>
+    <style>
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .popup-text {
+            font-family: cursive;
+            visibility: hidden;
+            width: 1000px;
+            background-color: #d99a24;
+            color: #000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 75%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .popup:hover .popup-text {
+            visibility: visible;
+            opacity: 1;
+        }
+      </style>
+    <style>
+        body {
+            font-family: Papyrus;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #484120;
+            border-bottom: 3px solid #484120;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+        .nav-link {
+            color: #007bff;
+            font-weight: bold;
+        }
+        hr {
+            border-color: #2d2607;
+        }
+        .form-control {
+            border-color: #2d2607; 
+        }
+        .btn-outline-success {
+            border-color: #28a745;
+            color: #28a745;
+        }
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Hogwarts Registration</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/regis">Registration (Quota)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account_reg">Registration Status</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2 border-light" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <hr>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
