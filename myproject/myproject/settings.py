@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-x(qrfh%lme$kqpln!5+uy*94tme$*xf!al1pw2(0w-k0dloqt3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kunkerdthaisong.pythonanywhere.com']
+ALLOWED_HOSTS = ['hogwartsregistration.pythonanywhere.com/']
 
 
 # Application definition
