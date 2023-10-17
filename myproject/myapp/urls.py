@@ -3,8 +3,8 @@ from django.contrib import admin
 from myapp import views
 
 urlpatterns=[
-    path('',view=views.index),
-    path('about',views.about),
+    path('',view=views.index,name='index'),
+    path('about',views.about,name='about'),
     path('login',views.user_login,name='login'),
     path('logout',views.user_logout,name='logout'),
     path('regis',views.regis,name='regis'),
