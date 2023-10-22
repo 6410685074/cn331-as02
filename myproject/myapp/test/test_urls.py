@@ -2,8 +2,8 @@
 from django.test import SimpleTestCase
 from django.urls import reverse,resolve
 from myapp.views import index,about,user_login,user_logout,regis,account_reg
-class TestUrls(SimpleTestCase):
 
+class TestUrls(SimpleTestCase):
     def test_index_url_is_resolved(self):
         url=reverse('index')
         print(resolve(url))

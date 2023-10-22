@@ -16,7 +16,9 @@
 <h3 style="color: rgb(255, 255, 255);">stu_id: {{user}}</h3>
 <p></p>
 <h3 style="color: rgb(255, 255, 255);">stu_name: {{student.student_name}}</h3>
+{% if student.student_img != None %}
 <img src="{{student.student_img}}" style="height: 140px; width: 140px; border: 5px solid #555;">
+{% endif%}
 <p></p>
 {% if student.student_house == "Slytherin" %}
 <h3 style="color: rgb(26, 97, 34); ">house: {{ student.student_house }} 🐍🐍</h3>
