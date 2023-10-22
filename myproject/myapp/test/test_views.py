@@ -17,13 +17,12 @@ class TestViews(TestCase):
         self.logout_url=reverse('logout')
         self.regis_url=reverse('regis')
         self.account_url=reverse('account_reg')
-        self.user=User.objects.create_user("6410685099","stu_ajarnjack")
-        self.client.login(username="6410685099",password="stu_ajarnjack")
-        self.course1 = Course.objects.create(ID='cn339', name='Math 101', num=20, nItems=10, lecturer='John Doe', status=True, info='Course info', sem_year='2023')
-        self.course2 = Course.objects.create(ID='cn338', name='Science 202', num=15, nItems=5, lecturer='Jane Smith', status=True, info='Course info', sem_year='2023')
-        self.student1 = Student.objects.create(student_house='Gryffindor', stu_id=self.user,student_name="abut to klam")
-        self.regis = Regis.objects.create(stu_id=self.user, c_id=self.course1)
-
+        self.user=User.objects.create_user("6410685999","6410685999@gmail.com","stu_ajarnjack")
+        self.student1 = Student.objects.create(stu_id=self.user,student_house='Gryffindor',student_name="harry kane")
+        self.course1 = Course.objects.create(ID='cn339', name='Math 101', num=20, nItems=10, lecturer='John Doe', status=True, info='Course info jaa', sem_year='2023')
+        self.course2 = Course.objects.create(ID='cn338', name='Science 202', num=15, nItems=5, lecturer='Jane Smith', status=True, info='Course info jaa2', sem_year='2023')
+        self.course1.save()
+        self.course2.save()
     def test_index_url_get(self):
         response=self.client.get(self.index_url)
         print(response)
@@ -78,6 +77,42 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code,200)
         self.user=response.wsgi_request.user
         self.assertFalse(self.user.is_authenticated)
+
+
+    def test_regis(self):
+        self.client.login(username='6410685999', password='stu_ajarnjack')
+        self.course3 = Course.objects.create(ID='cn337', name='Science x', num=1, nItems=0, lecturer='Jane Smith', status=True, info='Course info jaa2', sem_year='2023')
+        self.course3.save()
+        response = self.client.post(self.account_url, args=(self.student1,self.course3.ID))
+        self.assertIn(response.status_code, [200, 302])
+        
+    def test_regis_full(self):
+        self.client.login(username='6410685999', password='stu_ajarnjack')
+        self.course3 = Course.objects.create(ID='cn337', name='Science x', num=1, nItems=0, lecturer='Jane Smith', status=True, info='Course info jaa2', sem_year='2023')
+        self.course3.save()
+        response = self.client.post(self.account_url, args=[self.student1],data={"c_id":self.course3.ID})
+        updated =Course.objects.get(ID=self.course3.ID)
+        self.assertEqual(updated.nItems,1)
+        self.assertIn(response.status_code, [200, 302])
+
+    def test_regis_cancel(self):
+        self.client.login(username='6410685999', password='stu_ajarnjack')
+        self.course3 = Course.objects.create(ID='cn337', name='Science x', num=1, nItems=0, lecturer='Jane Smith', status=True, info='Course info jaa2', sem_year='2023')
+        self.course3.save()
+        response = self.client.post(self.account_url, args=[self.student1],data={"c_id":self.course3.ID})
+        updated =Course.objects.get(ID=self.course3.ID)
+        self.assertEqual(updated.nItems,1)
+        self.assertIn(response.status_code, [200, 302])
+
+        response = self.client.post(self.account_url, args=[self.student1],data={"cancel":self.course3.ID})
+        updated =Course.objects.get(ID=self.course3.ID)
+        self.assertEqual(updated.nItems,0)
+        self.assertIn(response.status_code, [200, 302])
+
+        
+        
+
+
 
         
     
